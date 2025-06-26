@@ -25,12 +25,12 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center space-x-6">
           {NAVIGATION_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="relative px-3 py-2 text-sm font-medium text-foreground/80 transition-all duration-200 hover:text-foreground hover:bg-accent/50 rounded-md group"
+              className="relative px-3 py-2 text-sm font-bold text-foreground/80 transition-all duration-200 hover:text-foreground hover:bg-accent/50 rounded-md group uppercase"
             >
               {item.label}
               <span className="absolute inset-x-1 bottom-0 h-0.5 bg-foreground transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
