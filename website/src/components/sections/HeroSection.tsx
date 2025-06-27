@@ -10,6 +10,47 @@ import { Button } from "../ui";
 export const HeroSection = () => {
   return (
     <section className="w-full h-[calc(100vh-68px)] overflow-hidden md:overflow-visible flex flex-col items-center justify-center relative">
+
+      {/*Scroll Down on the leftside absolute*/}
+          {/* Scroll Down indicator on the left side */}
+      <motion.div
+        className="absolute left-18 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-4 z-10"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        <div className="flex flex-col items-center space-y-2">
+          <span className="text-xl font-medium text-foreground/70 -rotate-90 whitespace-nowrap">
+            Scroll
+          </span>
+            <motion.div
+              className="w-[2px] h-18  relative overflow-hidden mt-5"
+              initial={{ scaleY: 1 }}
+              animate={{ scaleY: 1 }}
+            >
+              <motion.div
+                className="absolute top-0 left-0 w-full h-18 bg-foreground/60"
+                initial={{ scaleY: 0, y: 0 }}
+                animate={{ 
+                  scaleY: [0, 1, 1, 0],
+                  y: ["0%", "0%", "0%", "100%"]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatDelay: 0.5,
+                  ease: "easeInOut",
+                  times: [0, 0.4, 0.6, 1]
+                }}
+                style={{
+                  transformOrigin: "top"
+                }}
+              />
+            </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Hero*/}
       <div className="flex flex-col w-full max-w-7xl space-y-14">
         <div className="flex flex-col justify-center items-center z-50 pointer-events-auto">
           <motion.h1
