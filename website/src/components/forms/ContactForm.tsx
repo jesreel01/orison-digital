@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input } from "@/components/ui";
+import { Button, Input, Textarea } from "@/components/ui";
 
 export function ContactForm() {
   return (
@@ -23,10 +23,10 @@ export function ContactForm() {
           </div>
         </div>
 
+        <Textarea placeholder="Your message" name="message" required rows={5} />
+
         <div className="pt-4">
-          <Button>
-            Submit
-          </Button>
+          <Button>Submit</Button>
         </div>
       </form>
     </div>

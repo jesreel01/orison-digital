@@ -1,25 +1,71 @@
+"use client"
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+interface InputProps extends React.ComponentProps<"input"> {
+  placeholder?: string;
+}
+
+function Input({ className, type, placeholder, ...props }: InputProps) {
+  const [isFocused, setIsFocused] = React.useState(false);
+  const [hasValue, setHasValue] = React.useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHasValue(e.target.value.length > 0);
+    if (props.onChange) {
+      props.onChange(e);
+    }
+  };
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      setHasValue(inputRef.current.value.length > 0);
+    }
+  }, []);
+
+  const shouldFloatLabel = isFocused || hasValue;
+
   return (
-    <input
-      type={type}
-      data-slot="input"
-      className={cn(
-        // Base styles for underline design
-        "w-full bg-transparent border-0 border-b-2 border-gray-300 px-0 py-4 text-xl text-gray-900 placeholder-gray-500 outline-none transition-colors duration-200",
-        // Focus styles
-        "focus:border-gray-900 focus:placeholder-gray-400",
-        // Disabled styles
-        "disabled:opacity-50 disabled:cursor-not-allowed",
-        // File input styles
-        "file:border-0 file:bg-transparent file:text-sm file:font-medium",
-        className
+    <div className="relative">
+      <input
+        ref={inputRef}
+        type={type}
+        data-slot="input"
+        className={cn(
+          // Base styles for underline design
+          "w-full bg-transparent border-0 border-b-2 border-gray-300 pt-2 pb-4 text-xl text-gray-900 outline-none transition-colors duration-200",
+          // Focus styles
+          "focus:border-gray-900",
+          // Disabled styles
+          "disabled:opacity-50 disabled:cursor-not-allowed",
+          // File input styles
+          "file:border-0 file:bg-transparent file:text-sm file:font-medium",
+          className
+        )}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        {...props}
+      />
+      {placeholder && (
+        <label
+          className={cn(
+            "absolute left-0 pointer-events-none transition-all duration-200 ease-in-out",
+            shouldFloatLabel
+              ? "top-0 text-sm text-gray-600 transform -translate-y-full"
+              : "top-4 text-xl text-gray-500"
+          )}
+        >
+          {placeholder}
+        </label>
       )}
-      {...props}
-    />
+    </div>
   )
 }
 
