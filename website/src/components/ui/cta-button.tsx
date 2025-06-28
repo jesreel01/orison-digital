@@ -16,7 +16,7 @@ const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
         className={cn(
           'group relative overflow-hidden',
           'inline-flex items-center justify-center',
-          'px-14 py-8 min-h-[56px]',
+          'px-12 py-6 min-h-[56px]',
           'rounded-full font-medium text-base',
           'transition-all duration-300 ease-in-out',
           'focus:outline-none focus:ring-2 focus:ring-offset-2',

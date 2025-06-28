@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
 
@@ -16,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Orison Digital - Digital Solutions That Matter",
-  description: "Creating digital experiences that drive results. Web development, digital marketing, and more.",
+  description:
+    "Creating digital experiences that drive results. Web development, digital marketing, and more.",
 };
 
 export default function RootLayout({
@@ -29,10 +31,13 @@ export default function RootLayout({
       <body
         className={`${jakartaSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="685ea114382097b1b73f5ee1"
+        ></Script>
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
