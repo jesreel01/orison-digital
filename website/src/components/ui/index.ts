@@ -1,5 +1,5 @@
 // UI Components exports
 export { Button } from './button';
 // Add more UI component exports here as you create them
-// export { Input } from './Input';
+export { Input } from './input';
 // export { Modal } from './Modal';
