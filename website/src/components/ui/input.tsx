@@ -10,26 +10,22 @@ interface InputProps extends React.ComponentProps<"input"> {
 
 function Input({ className, type, placeholder, ...props }: InputProps) {
   const [isFocused, setIsFocused] = React.useState(false);
-  const [hasValue, setHasValue] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHasValue(e.target.value.length > 0);
     if (props.onChange) {
       props.onChange(e);
     }
   };
 
-  React.useEffect(() => {
-    if (inputRef.current) {
-      setHasValue(inputRef.current.value.length > 0);
-    }
-  }, []);
 
-  const shouldFloatLabel = isFocused || hasValue;
+  const shouldFloatLabel =
+    isFocused ||
+    (typeof props.value === "string" && props.value.length > 0) ||
+    (Array.isArray(props.value) && props.value.length > 0);
 
   return (
     <div className="relative">
