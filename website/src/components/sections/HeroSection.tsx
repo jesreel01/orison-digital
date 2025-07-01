@@ -10,9 +10,8 @@ import { Button } from "../ui";
 export const HeroSection = () => {
   return (
     <section className="w-full h-[calc(100vh-68px)] overflow-hidden md:overflow-visible flex flex-col items-center justify-center relative">
-
       {/*Scroll Down on the leftside absolute*/}
-          {/* Scroll Down indicator on the left side */}
+      {/* Scroll Down indicator on the left side */}
       <motion.div
         className="absolute left-18 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-4 z-10"
         initial={{ opacity: 0, x: -20 }}
@@ -23,30 +22,30 @@ export const HeroSection = () => {
           <span className="text-xl font-medium text-foreground/70 -rotate-90 whitespace-nowrap">
             Scroll
           </span>
+          <motion.div
+            className="w-[2px] h-18  relative overflow-hidden mt-5"
+            initial={{ scaleY: 1 }}
+            animate={{ scaleY: 1 }}
+          >
             <motion.div
-              className="w-[2px] h-18  relative overflow-hidden mt-5"
-              initial={{ scaleY: 1 }}
-              animate={{ scaleY: 1 }}
-            >
-              <motion.div
-                className="absolute top-0 left-0 w-full h-18 bg-foreground/60"
-                initial={{ scaleY: 0, y: 0 }}
-                animate={{ 
-                  scaleY: [0, 1, 1, 0],
-                  y: ["0%", "0%", "0%", "100%"]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 0.5,
-                  ease: "easeInOut",
-                  times: [0, 0.4, 0.6, 1]
-                }}
-                style={{
-                  transformOrigin: "top"
-                }}
-              />
-            </motion.div>
+              className="absolute top-0 left-0 w-full h-18 bg-foreground/60"
+              initial={{ scaleY: 0, y: 0 }}
+              animate={{
+                scaleY: [0, 1, 1, 0],
+                y: ["0%", "0%", "0%", "100%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatDelay: 0.5,
+                ease: "easeInOut",
+                times: [0, 0.4, 0.6, 1],
+              }}
+              style={{
+                transformOrigin: "top",
+              }}
+            />
+          </motion.div>
         </div>
       </motion.div>
 
@@ -79,19 +78,23 @@ export const HeroSection = () => {
               their operations.
             </p>
 
-            <div className="flex flex-row justify-start space-x-8 items-center">
-              <CtaButton>Book now</CtaButton>
-              <div className="relative flex flex-col items-center group cursor-pointer select-none h-min">
+            <div className="flex flex-row justify-start space-x-6 items-center">
+              {/* <CtaButton>Get Quote</CtaButton> */}
+              <Button>Book Free Strategy</Button>
+              <div>
+                30-minute strategy call
+              </div>
+              {/* <div className="relative flex flex-col items-center group cursor-pointer select-none h-min">
                 <a
                   className="uppercase tracking-widest text-[1.1rem] font-medium text-foreground/90 text-center w-full pb-1"
                   href="#"
                   tabIndex={0}
                 >
-                  Work with us
+                  Learn More
                 </a>
                 <span className="absolute inset-x-1 bottom-0 h-[1px] bg-foreground/30"></span>
                 <span className="absolute inset-x-1 bottom-0 h-[1px] bg-foreground transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left"></span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
