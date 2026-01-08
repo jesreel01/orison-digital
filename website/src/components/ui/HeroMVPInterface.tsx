@@ -35,8 +35,7 @@ export const HeroMVPInterface = () => {
       transition: { 
         staggerChildren: 0.1,
         delayChildren: 0.2,
-        duration: 0.5,
-        ease: "easeOut"
+        duration: 0.5
       }
     }
   };
@@ -46,7 +45,7 @@ export const HeroMVPInterface = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { type: "spring", stiffness: 260, damping: 20 } 
+      transition: { type: "spring" as const, stiffness: 260, damping: 20 } 
     }
   };
 
