@@ -7,11 +7,19 @@ import { useEffect } from "react";
 export const ContactSection = () => {
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi();
+      const cal = await getCalApi({ namespace: "30min", });
       cal("ui", {
-        styles: { branding: { brandColor: "#9333ea" } },
+        theme: "light",
+        cssVarsPerTheme: {
+          light: {
+            "cal-brand": "#ce00ff"
+          },
+          dark: {
+            "cal-brand": "#ce00ff"
+          }
+        },
         hideEventTypeDetails: false,
-        layout: "month_view",
+        layout: "month_view"
       });
     })();
   }, []);
@@ -39,13 +47,12 @@ export const ContactSection = () => {
         </div>
 
         <FadeIn delay={0.1}>
-          <div className="bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-slate-100">
-            <Cal
-              calLink="your-username/30min"
-              style={{ width: "100%", height: "100%", overflow: "scroll" }}
-              config={{ layout: "month_view" }}
-            />
-          </div>
+          <Cal
+            namespace="30min"
+            calLink="jesreel-miole-vb9pss/30min"
+            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+            config={{ layout: "month_view", theme: "light", }}
+          />
         </FadeIn>
       </div>
     </section>

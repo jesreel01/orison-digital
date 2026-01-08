@@ -3,6 +3,7 @@ import {
   ServicesSection,
   WorkSection,
   AboutSection,
+  TestimonialsSection,
   ContactSection,
 } from "../sections";
 import { ProcessTimeline } from "../ui/ProcessTimeline";
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <ServicesSection />
       <ProcessTimeline />
       {/* <WorkSection /> */}
+      <TestimonialsSection />
       <AboutSection />
       <ContactSection />
     </>
