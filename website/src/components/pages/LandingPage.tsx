@@ -1,13 +1,23 @@
-import React from 'react'
-import { HeroSection } from '../sections'
+import {
+  HeroSection,
+  ServicesSection,
+  WorkSection,
+  AboutSection,
+  ContactSection,
+} from "../sections";
+import { ProcessTimeline } from "../ui/ProcessTimeline";
 
 const LandingPage = () => {
   return (
     <>
-    <HeroSection />
+      <HeroSection />
+      <ServicesSection />
+      <ProcessTimeline />
+      <WorkSection />
+      <AboutSection />
+      <ContactSection />
     </>
-    
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;

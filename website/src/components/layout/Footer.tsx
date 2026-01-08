@@ -1,6 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
-import { ROUTES } from '@/constants';
+"use client";
+
+import Image from "next/image";
+import { motion } from "motion/react";
+import { ROUTES } from "@/constants";
 
 interface FooterProps {
   className?: string;
@@ -10,78 +12,115 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={`border-t bg-background ${className || ''}`}>
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Orison Digital</h3>
-            <p className="text-sm text-muted-foreground">
-              Creating digital experiences that matter.
+    <footer
+      className={`border-t border-foreground/10 bg-background ${className || ""}`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/favicon.ico"
+                alt="Orison Digital"
+                width={32}
+                height={32}
+                className="size-8"
+              />
+              <span className="text-lg font-bold">Orison Digital</span>
+            </div>
+            <p className="text-foreground/60 max-w-sm leading-relaxed">
+              Custom software solutions helping businesses streamline their
+              operations. No fluff, just results.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href={ROUTES.ABOUT} className="text-muted-foreground hover:text-primary">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href={ROUTES.SERVICES} className="text-muted-foreground hover:text-primary">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href={ROUTES.PORTFOLIO} className="text-muted-foreground hover:text-primary">
-                  Portfolio
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">Support</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href={ROUTES.CONTACT} className="text-muted-foreground hover:text-primary">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-primary">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-primary">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">Follow Us</h4>
-            <div className="flex space-x-4">
-              {/* Add social media links here */}
-              <a href="#" className="text-muted-foreground hover:text-primary">
-                Twitter
+          <div>
+            <h4 className="font-semibold mb-4">Navigate</h4>
+            <div className="flex flex-col gap-3">
+              <a
+                href={ROUTES.SERVICES}
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                Services
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary">
+              <a
+                href={ROUTES.WORK}
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                Work
+              </a>
+              <a
+                href={ROUTES.ABOUT}
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                About
+              </a>
+              <a
+                href={ROUTES.CONTACT}
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Connect</h4>
+            <div className="flex flex-col gap-3">
+              <a
+                href="mailto:hello@orisondigital.com"
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                hello@orisondigital.com
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
                 LinkedIn
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 hover:text-foreground transition-colors"
+              >
+                Twitter
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Orison Digital. All rights reserved.</p>
+        <div className="border-t border-foreground/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-foreground/40">
+            &copy; {currentYear} Orison Digital. All rights reserved.
+          </p>
+          <motion.a
+            href="#"
+            className="flex items-center gap-2 text-sm text-foreground/40 hover:text-foreground transition-colors"
+            whileHover={{ y: -2 }}
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            Back to top
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
+            </svg>
+          </motion.a>
         </div>
       </div>
     </footer>

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Header, Footer } from "@/components/layout";
+import { Footer, FloatingNav } from "@/components/layout";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta-sans",
@@ -31,14 +32,16 @@ export default function RootLayout({
       <body
         className={`${jakartaSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="685ea114382097b1b73f5ee1"
-        ></Script>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Script
+            src="https://widgets.leadconnectorhq.com/loader.js"
+            data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+            data-widget-id="685ea114382097b1b73f5ee1"
+          ></Script>
+          <FloatingNav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
