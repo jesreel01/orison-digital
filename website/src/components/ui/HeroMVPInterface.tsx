@@ -91,7 +91,7 @@ export const HeroMVPInterface = () => {
           <div className="flex gap-4 flex-1 min-h-0">
              {/* Sidebar Construction */}
              <div className="w-12 flex flex-col gap-3 py-2 border-r border-purple-100">
-                {[1, 2, 3, 4, 5].map(i => (
+                {[1, 2, 3].map(i => (
                    <motion.div 
                      key={i}
                      className="w-8 h-8 rounded-lg bg-purple-200"
@@ -112,11 +112,11 @@ export const HeroMVPInterface = () => {
                          <div className="h-3 w-1/3 bg-purple-300 rounded" />
                          <div className="h-6 w-16 bg-purple-100 rounded-md" />
                       </div>
-                      <div className="flex-1 bg-white rounded-lg border border-purple-200 p-2 shadow-sm flex items-end gap-1">
+                      <div className="flex-1 rounded-lg p-2 flex items-end gap-1">
                          {[40, 70, 50, 90, 60, 80].map((h, i) => (
                             <motion.div 
                               key={i}
-                              className="w-full bg-purple-100 rounded-sm"
+                              className="w-full bg-purple-200 rounded-sm"
                               initial={{ height: 0 }}
                               animate={{ height: `${h}%` }}
                               transition={{ duration: 1.5, delay: 2 + i * 0.1, repeat: Infinity, repeatDelay: 3 }}
