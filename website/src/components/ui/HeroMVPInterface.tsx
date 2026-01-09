@@ -62,12 +62,7 @@ export const HeroMVPInterface = () => {
 
       {/* Main Container */}
       <motion.div
-        className="relative z-10 w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl shadow-slate-200/50 border border-white/50"
-        style={{
-          rotateX: isHovered ? rotateX : 0,
-          rotateY: isHovered ? rotateY : 0,
-          transition: "transform 0.1s ease-out"
-        }}
+        className="relative z-10 w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl shadow-purple-200/50 border border-white/50"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -77,30 +72,29 @@ export const HeroMVPInterface = () => {
           
           {/* Complex Header */}
           <motion.div 
-            className="flex items-center justify-between border-b border-slate-100 pb-4"
+            className="flex items-center justify-between border-b border-purple-100 pb-4"
             variants={itemVariants}
           >
              <div className="flex items-center gap-4">
-                <div className="w-8 h-8 rounded-lg bg-slate-200 animate-pulse" />
+                <div className="w-8 h-8 rounded-lg bg-purple-200 animate-pulse" />
                 <div className="flex gap-2">
-                   <div className="h-2 w-16 bg-slate-200 rounded-full" />
-                   <div className="h-2 w-12 bg-slate-100 rounded-full" />
-                   <div className="h-2 w-12 bg-slate-100 rounded-full" />
+                   <div className="h-2 w-16 bg-purple-200 rounded-full" />
+                   <div className="h-2 w-12 bg-purple-100 rounded-full" />
+                   <div className="h-2 w-12 bg-purple-100 rounded-full" />
                 </div>
              </div>
              <div className="flex gap-2">
-                <div className="h-8 w-8 rounded-full bg-slate-100 border border-slate-200" />
-                <div className="h-8 w-8 rounded-full bg-slate-100 border border-slate-200" />
+                <div className="h-8 w-8 rounded-full bg-purple-100 border border-purple-200" />
              </div>
           </motion.div>
 
           <div className="flex gap-4 flex-1 min-h-0">
              {/* Sidebar Construction */}
-             <div className="w-12 flex flex-col gap-3 py-2 border-r border-slate-100">
+             <div className="w-12 flex flex-col gap-3 py-2 border-r border-purple-100">
                 {[1, 2, 3, 4, 5].map(i => (
                    <motion.div 
                      key={i}
-                     className="w-8 h-8 rounded-lg bg-slate-200"
+                     className="w-8 h-8 rounded-lg bg-purple-200"
                      variants={itemVariants}
                    />
                 ))}
@@ -110,15 +104,15 @@ export const HeroMVPInterface = () => {
              <div className="flex-1 grid grid-cols-3 gap-3">
                 {/* Large Main Feature */}
                 <motion.div 
-                  className="col-span-2 row-span-2 bg-slate-100 rounded-xl border border-dashed border-slate-300 relative overflow-hidden group"
+                  className="col-span-2 row-span-2 bg-purple-100 rounded-xl border border-dashed border-purple-200 relative overflow-hidden group"
                   variants={itemVariants}
                 >
                    <div className="absolute inset-4 flex flex-col gap-3">
                       <div className="flex justify-between items-center">
-                         <div className="h-3 w-1/3 bg-slate-300 rounded" />
+                         <div className="h-3 w-1/3 bg-purple-300 rounded" />
                          <div className="h-6 w-16 bg-purple-100 rounded-md" />
                       </div>
-                      <div className="flex-1 bg-white rounded-lg border border-slate-200 p-2 shadow-sm flex items-end gap-1">
+                      <div className="flex-1 bg-white rounded-lg border border-purple-200 p-2 shadow-sm flex items-end gap-1">
                          {[40, 70, 50, 90, 60, 80].map((h, i) => (
                             <motion.div 
                               key={i}
@@ -132,39 +126,39 @@ export const HeroMVPInterface = () => {
                    </div>
                    {/* Construction Overlay */}
                    <div className="absolute inset-0 bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-[10px] font-mono text-slate-500">Rendering...</span>
+                      <span className="text-[10px] font-mono text-purple-500">Rendering...</span>
                    </div>
                 </motion.div>
 
                 {/* Right Side Widgets */}
                 <motion.div 
-                  className="bg-white border border-slate-200 rounded-xl p-3 shadow-sm"
+                  className="bg-purple-100 border border-dashed border-purple-200 rounded-xl p-3"
                   variants={itemVariants}
                 >
                    <div className="flex gap-2 mb-2">
-                      <div className="w-6 h-6 rounded-full bg-purple-100" />
-                      <div className="flex-1 h-2 my-auto bg-slate-100 rounded" />
+                      <div className="w-6 h-6 rounded-full bg-purple-300" />
+                      <div className="flex-1 h-2 my-auto bg-purple-200 rounded" />
                    </div>
                    <div className="space-y-1">
-                      <div className="h-1.5 w-full bg-slate-100 rounded" />
-                      <div className="h-1.5 w-2/3 bg-slate-100 rounded" />
+                      <div className="h-1.5 w-full bg-purple-200 rounded" />
+                      <div className="h-1.5 w-2/3 bg-purple-200 rounded" />
                    </div>
                 </motion.div>
 
                 <motion.div 
-                   className="bg-slate-100 rounded-xl border border-dashed border-slate-300" 
+                   className="bg-purple-100 rounded-xl border border-dashed border-purple-200" 
                    variants={itemVariants}
                 />
 
                 {/* Bottom Row */}
                 <motion.div 
-                   className="col-span-3 h-24 bg-white border border-slate-200 rounded-xl p-4 flex gap-4 overflow-hidden relative"
+                   className="col-span-3 h-24 bg-purple-100 border border-purple-200 rounded-xl p-4 flex gap-4 overflow-hidden relative"
                    variants={itemVariants}
                 >
-                   <div className="w-1/4 h-full bg-slate-100 rounded-lg animate-pulse" />
-                   <div className="w-1/4 h-full bg-slate-100 rounded-lg animate-pulse delay-75" />
-                   <div className="w-1/4 h-full bg-slate-100 rounded-lg animate-pulse delay-150" />
-                   <div className="w-1/4 h-full bg-slate-100 rounded-lg animate-pulse delay-200" />
+                   <div className="w-1/4 h-full bg-purple-200 rounded-lg animate-pulse" />
+                   <div className="w-1/4 h-full bg-purple-200 rounded-lg animate-pulse delay-75" />
+                   <div className="w-1/4 h-full bg-purple-200 rounded-lg animate-pulse delay-150" />
+                   <div className="w-1/4 h-full bg-purple-200 rounded-lg animate-pulse delay-200" />
                    
 
                 </motion.div>
@@ -173,12 +167,12 @@ export const HeroMVPInterface = () => {
 
           {/* Process Timeline Bar */}
           <motion.div 
-            className="mt-auto pt-6 border-t border-slate-100/50"
+            className="mt-auto pt-6 border-t border-purple-100/50"
             variants={itemVariants}
           >
             <div className="flex justify-between items-center relative">
                {/* Base Timeline Line */}
-               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -z-10" />
+               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-purple-100 -z-10" />
                
                {/* Animated Progress Line */}
                <motion.div 
@@ -197,7 +191,7 @@ export const HeroMVPInterface = () => {
                ].map((step, i) => (
                  <div key={step.label} className="flex flex-col items-center gap-2 bg-white px-1 z-10">
                     <motion.div 
-                      className="w-3 h-3 rounded-full border-2 bg-white border-slate-200"
+                      className="w-3 h-3 rounded-full border-2 bg-white border-purple-200"
                       animate={{ 
                         backgroundColor: ["#ffffff", "#9333ea", "#9333ea"], // White -> Purple -> Purple
                         borderColor: ["#e2e8f0", "#9333ea", "#9333ea"],
@@ -212,7 +206,7 @@ export const HeroMVPInterface = () => {
                       }}
                     />
                     <motion.span 
-                      className="text-[10px] font-bold text-slate-400"
+                      className="text-[10px] font-bold text-purple-400"
                       animate={{ color: ["#94a3b8", "#9333ea", "#0f172a"] }}
                       transition={{ 
                         duration: 4, 

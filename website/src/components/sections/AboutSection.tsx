@@ -38,7 +38,7 @@ export const AboutSection = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section id="about" className="py-24 px-6 bg-white">
+    <section id="faq" className="py-24 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

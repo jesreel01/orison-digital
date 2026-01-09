@@ -6,9 +6,9 @@ import Image from "next/image";
 import { ROUTES } from "@/constants";
 
 const navItems = [
-  { label: "Our Work", href: ROUTES.WORK },
-  { label: "Services", href: ROUTES.SERVICES },
-  { label: "About", href: ROUTES.ABOUT },
+  { label: "Service", href: ROUTES.SERVICES },
+  { label: "Testimonies", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export const FloatingNav = () => {
